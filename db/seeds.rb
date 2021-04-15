@@ -13,7 +13,7 @@ end
 end
 
 
-5.times do 
+60.times do 
     Plant.create(name: Faker::Cannabis.strain, latin_name: Faker::Ancient.primordial, notes: Faker::Books::Dune.quote, date_planted: Faker::Date.backward(days: 200), user_id: 1, garden_id: rand(1..5))
     Plant.create(name: Faker::Cannabis.strain, latin_name: Faker::Ancient.primordial, notes: Faker::Books::Dune.quote, date_planted: Faker::Date.backward(days: 200), user_id: 2, garden_id: rand(1..5))
     Plant.create(name: Faker::Cannabis.strain, latin_name: Faker::Ancient.primordial, notes: Faker::Books::Dune.quote, date_planted: Faker::Date.backward(days: 200), user_id: 3, garden_id: rand(1..5))
