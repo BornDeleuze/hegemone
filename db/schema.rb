@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_232449) do
+ActiveRecord::Schema.define(version: 2021_04_15_002800) do
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
-    t.integer "plant_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -23,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_232449) do
     t.string "notes"
     t.string "date_planted"
     t.integer "user_id"
+    t.integer "garden_id"
   end
 
   create_table "users", force: :cascade do |t|
