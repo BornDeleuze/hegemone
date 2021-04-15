@@ -1,0 +1,36 @@
+
+
+    <div class="content">
+      <p> Welcome to Hegemone! You can keep track of your plants in your gardens here! </p>
+    </div>
+    <br><br><br>
+
+      <body>
+    <h1>Please log in!</h1>
+      <form action = "/" method ="POST">
+        Enter username: <input type="text" name="user_name">
+        Password: <input type="text" name="password">
+        <input type="submit" value="submit">
+      </form>
+      <h1>New here? Please sign up here!</h1>
+       <form action = "/new" method ="POST">
+        Enter username: <input type="text" name="user_name">
+        Password: <input type="text" name="password">
+        <input type="submit" value="submit">
+      </form>
+
+  </body>
+
+
+    <div class="sidebar">
+      <h3>Environment</h3>
+      <ul>
+        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
+        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
+        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

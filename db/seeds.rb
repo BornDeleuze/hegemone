@@ -9,7 +9,7 @@ end
 
 
 5.times do
-    Garden.create(name: ["indoor", "frontyard", "backyard"].sample)
+    Garden.create(name: ["Indoor Garden", "Frontyard Garden", "Backyard Garden"].sample)
 end
 
 

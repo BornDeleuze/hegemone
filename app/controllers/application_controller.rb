@@ -1,6 +1,5 @@
 require './config/environment'
 
-
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -8,19 +7,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :index
   end
 
-  get '/login' do
-    #login page
+  post '/new' do
+    User.create(user_name: params[:user_name], password: params[:password])
+    binding.pry
+    
   end
 
-  get '/home' do
-     #home, place to post, view options
-  end
-
-  post'/home' do
-    #post the form 
-  end
-
+ #Index, Show, New, Create, Edit, Update, Delete
+ 
 end

@@ -1,0 +1,17 @@
+<h1><%= @plant.name%></h1>
+<h3>
+    <ul>
+        <% if @plant.latin_name != nil %>
+        <li>Latin Name: <%= @plant.latin_name%></li>
+        <% end %>
+        <% if @plant.notes != nil %>
+        <li>Notes: <%= @plant.notes%></li>
+        <% end %>
+        <% if @plant.date_planted != nil %>
+        <li>Date Planted: <%= @plant.date_planted%></li>
+        <% end %>
+        <% if @plant.garden.name != nil %>
+        <li>Garden: <%= @plant.garden.name%></li>
+        <% end %>
+    </ul>
+</h3>

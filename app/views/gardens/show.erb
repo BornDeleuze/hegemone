@@ -1,0 +1,9 @@
+<h1>Garden Name: <%= @garden.name%></h1>
+<h3> Here's a list of all the plants in this garden! </h3>
+<h4>
+    <ul>
+        <% @garden.plants.each do |plant| %>
+            <li> <%=plant.name%> </li>
+        <% end %>
+    </ul>
+</h4>
