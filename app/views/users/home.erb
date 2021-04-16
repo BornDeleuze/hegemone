@@ -19,8 +19,14 @@
 <br><br>
 <h2>Here's your gardens!</h2>
 <ul>
+<% array = []%>
+<% user.plants.each do |plant|%>
+        <% if array.include?(plant.garden_name)%>
+        <% else %>
+            <% array << plant.garden_name%>
+            <li><a href="/gardens/<%= plant.garden_name %>" >
+            <%= plant.garden_name %> </a> </li>    
+        <% end %>
+    <% end %>
 
-<% user.gardens.each do |garden|%>
-    <li><%= garden.name %></li>
-<% end %>
 </ul>

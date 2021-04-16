@@ -1,0 +1,10 @@
+<h1>Here's all the plants in this garden!</h1>
+
+list all users plants with a given garden_name
+<h2><ul>
+    <% current_user.plants.each do |plant|%>
+        <% if plant.garden_name == @garden_name %>
+            <li><a href='/plants/<%= plant.id%>'> <%= plant.name%></li></a>
+        <% end %>
+    <% end %>
+</ul></h2>

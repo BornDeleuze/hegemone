@@ -2,7 +2,12 @@ class PlantController < ApplicationController
 
 #[X]Index, [x]Show, [x]New, [x]Create, Edit, Update, Delete
 
-#index is the /users/home
+
+#index
+  get '/home' do
+    erb :'users/home'
+  end
+
 
 #create is
   get '/plants/new' do 
@@ -24,9 +29,17 @@ class PlantController < ApplicationController
     end
   end
 
+  get '/gardens/:garden_name' do
+    if logged_in?
+      @garden_name = params[:garden_name]
+      erb :'plants/garden'
+    else
+      redirect '/login'
+    end
+  end
+
 #create is
   post '/plants' do
-    garden = Garden.find_or_create_by(name: params[:garden_name])
     plant = current_user.plants.build(params)
       if plant.save
         redirect "plants/#{plant.id}"

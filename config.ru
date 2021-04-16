@@ -5,7 +5,7 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 use SessionsController
-use GardenController
+# use GardenController
 use UserController
 use PlantController
 run ApplicationController
