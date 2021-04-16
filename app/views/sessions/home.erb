@@ -1,0 +1,28 @@
+<h2>Here's your plants!</h2>
+
+
+
+<% user = current_user %>
+<% if user.plants != nil %>
+        <ul>
+        <% user.plants.each do |plant|%>
+            <li>
+            <a href="/plants/<%= plant.id %>" >
+            <%= plant.name %> </a>
+            </li>
+        <% end %>
+        </ul>
+    <% else %>
+    <h3>You don't have any plants!?</h3>
+    
+<% end %>
+
+<a href="/plants/new" > Add a new plant here!</a>
+
+<h2>Here's your gardens!</h2>
+<ul>
+
+<% user.gardens.each do |garden|%>
+    <li><%= garden.name %></li>
+<% end %>
+</ul>

@@ -1,8 +1,9 @@
 class PlantController < ApplicationController
 
+#Index, Show, New, Create, Edit, Update, Delete
+
   get '/plants' do
-    @plants = Plant.all
-    erb :'plants/index'
+    erb :'sessions/home'
   end
 
   get '/plants/new' do 
