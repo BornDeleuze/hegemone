@@ -1,10 +1,7 @@
 class GardenController < ApplicationController
-
-    get '/gardens' do
-        @gardens = Garden.all
-        erb :'gardens/index'
-    end
     
+    #garden index is /home, with plants list also
+
     get '/gardens/:id' do
         id = params['id']
         @garden = Garden.find_by_id(id)
