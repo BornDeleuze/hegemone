@@ -11,8 +11,7 @@ class UserController < ApplicationController
     post '/users/new' do
         @user = User.create(user_name: params[:user_name], password: params[:password])    
         @user.save
-        binding.pry
-        erb :'sessions/home'
+        erb :'users/home'
     end
 
     get '/users/signup' do

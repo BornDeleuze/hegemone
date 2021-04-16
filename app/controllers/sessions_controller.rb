@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         user = User.find_by(user_name: params[:user_name])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            erb :'sessions/home'
+            erb :'users/home'
         else
             redirect "/login"
         end

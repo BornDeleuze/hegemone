@@ -1,9 +1,7 @@
 <h2>Here's your plants!</h2>
 
-
-
-<% user = current_user %>
-<% if user.plants != nil %>
+<% user = current_user%>
+<% if user.plants[0] != nil %>
         <ul>
         <% user.plants.each do |plant|%>
             <li>
@@ -18,7 +16,7 @@
 <% end %>
 
 <a href="/plants/new" > Add a new plant here!</a>
-
+<br><br>
 <h2>Here's your gardens!</h2>
 <ul>
 
