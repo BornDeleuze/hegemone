@@ -6,24 +6,28 @@ class PlantController < ApplicationController
 
 #create is
   get '/plants/new' do 
-    erb :'/plants/new'
+    if logged_in?
+      erb :'/plants/new'
+    else
+      redirect '/login'
+    end
   end
+
 #show is
   get '/plants/:id' do
-    id = params['id']
-    @plant = Plant.find_by_id(id)
-    erb :'plants/show'
+    if logged_in?
+      id = params['id']
+      @plant = Plant.find_by_id(id)
+      erb :'plants/show'
+    else
+      redirect '/login'
+    end
   end
+
 #create is
   post '/plants' do
-  garden = Garden.find_or_create_by(name: params[:garden_name])
-
-  plant = Plant.create(name: params[:name], 
-      latin_name: params[:latin_name], 
-      notes: params[:notes], 
-      date_planted: params[:date_planted],
-      garden_id: garden.id)
-
+    garden = Garden.find_or_create_by(name: params[:garden_name])
+    plant = current_user.plants.build(params)
       if plant.save
         redirect "plants/#{plant.id}"
       else
@@ -31,8 +35,10 @@ class PlantController < ApplicationController
       end
   end
 
-  
+  #edit
 
+  #update
 
+  #delete
 
 end

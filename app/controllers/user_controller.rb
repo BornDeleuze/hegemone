@@ -1,17 +1,13 @@
 class UserController < ApplicationController
     
-    get '/users' do
-        @users = User.all
-        erb :'users/index'
-    end
-
-
-    #create new user objects
-
     post '/users/new' do
-        @user = User.create(user_name: params[:user_name], password: params[:password])    
-        @user.save
-        erb :'users/home'
+        @user = User.new(params)  
+          if @user && @user.save
+            session[:user_id] = @user.id
+            erb :'users/home'
+          else
+            erb :'/users/signup'
+          end
     end
 
     get '/users/signup' do
