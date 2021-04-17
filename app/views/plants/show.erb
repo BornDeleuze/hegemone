@@ -5,7 +5,7 @@
         <li>Latin Name: <%= @plant.latin_name%></li>
         <% end %>
         <% if @plant.notes != nil %>
-        <li>Notes: <%= @plant.notes%></li>
+        <li>Notes: <h5><%= @plant.notes%></h5></li>
         <% end %>
         <% if @plant.date_planted != nil %>
         <li>Date Planted: <%= @plant.date_planted%></li>
@@ -14,6 +14,6 @@
         <li>Garden: <%= @plant.garden_name%></li>
         <% end %>
     </ul>
-    <a href="/plants/:id/edit">Edit this plant</a>
-    <a href="/home">Back to the your list of plants</a> 
+    <h4><a href="/plants/<%=@plant.id%>/edit">Edit or delete this plant here</a><br>
+    <a href="/home">Back to the your list of plants</a> </h4>
 </h3>

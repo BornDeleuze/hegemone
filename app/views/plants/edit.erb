@@ -1,13 +1,18 @@
-<h1>Please submit new data for this plant</h1>
+
 <h2><%= @plant.name %></h2>
 <h3>
 <form method="POST" action="/plants/<%= @plant.id %>">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
     <p> Name: <input type="text" name="name" value="<%= @plant.name %>" ></p>
-    <p> Latin Name: <input type="text" name="lati_name" value="<%= @plant.latin_name %>"></p>
+    <p> Latin Name: <input type="text" name="latin_name" value="<%= @plant.latin_name %>"></p>
     <p> Notes: <input type="text" name="notes" value="<%= @plant.notes %>"></p>
     <p> Date Planted: <input type="text" name="date_planted" value="<%= @plant.date_planted %>"></p>
-    <p>Garden: <input type="text" name="garden_name"></p>
+    <p>Garden: <input type="text" name="garden_name" value="<%= @plant.garden_name%>"></p>
     <input type="submit">
+    <p>Delete this plant?</p>
+        <form method="POST" action="/thoughts/<%= @plant.id %>">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="DELETE">
+        </form>
 </form>
 </h3>

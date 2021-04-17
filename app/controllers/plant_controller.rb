@@ -1,15 +1,9 @@
 class PlantController < ApplicationController
 
-#[X]Index, [x]Show, [x]New, [x]Create, Edit, Update, Delete
-
-
-#index
   get '/home' do
     erb :'users/home'
   end
 
-
-#create is
   get '/plants/new' do 
     if logged_in?
       erb :'/plants/new'
@@ -18,7 +12,6 @@ class PlantController < ApplicationController
     end
   end
 
-#show is
   get '/plants/:id' do
     if logged_in?
       id = params['id']
@@ -38,7 +31,6 @@ class PlantController < ApplicationController
     end
   end
 
-#create is
   post '/plants' do
     plant = current_user.plants.build(params)
       if plant.save
@@ -48,14 +40,30 @@ class PlantController < ApplicationController
       end
   end
 
-  #edit
   get "/plants/:id/edit" do
-    @plant = Plant.find_by_id(params[:id])
-    erb :"plants/edit"
+    if logged_in?
+      @plant = Plant.find_by_id(params[:id])
+      erb :'plants/edit'
+    else
+      redirect '/login'
+    end
   end
-  
-  #update
 
-  #delete
+  patch "/plants/:id" do
+    @plant = Plant.find_by_id(params[:id])
+    params.delete("_method")
+    @plant.update(params)
+    if @plant.update(params)
+        redirect "/plants/#{@plant.id}"
+    else
+        redirect "plants/new"
+    end
+  end
+
+  delete "/plants/:id" do
+    @plant = Plant.find_by_id(params[:id])
+    @plant.destroy
+    redirect "/home"
+  end
 
 end
