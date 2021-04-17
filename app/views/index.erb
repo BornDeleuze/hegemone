@@ -1,18 +1,27 @@
+<% if logged_in? %>
+  <h1 style="text-align:center">Welcome back to Hegemone!</h1>
+<% else %>
+  <h1 style="text-align:center"> Welcome to Hegemone!</h1> 
+<h3 style="text-align:center">You can keep track of your plants in your gardens here! </h3>
+<% end %>
 
 
-<div class="content">
-  <h1> Welcome to Hegemone!</h1> 
-  <h3>You can keep track of your plants in your gardens here! </h3>
-</div>
-
-
-<body>
-  <br><br><br><br><br><br><br><br><br><br>
-  <h3>Please log in!</h3>
-      <form method ="POST" action = "/login">
-      Enter username: <input type="text" name="user_name">
-      Password: <input type="password" name="password">
-      <input type="submit" value="submit">
+<br><br><br><br><br><br><br><br><br><br>
+<% if logged_in? %>
+  <h4> Bask in the abundance of your list of plants  <a href="/home">here</a> or add a new plant <a href="/plants/new" >here</a>!</h4>
+<% else %>
+  <br>
+  <body>
+  <h4>Please log in!</h4>
+  <br>
+    <form method ="POST" action = "/login">
+      <p>Username: <input type="text" name="user_name"></p>
+      <p>Password: <input type="password" name="password"></p>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right"></i>
+      </button> <a href='/users/signup' class="waves-effect waves-light btn"> New here? Please sign up here!</a>
     </form>
-  <h3><a href='/users/signup'> New here? Please sign up here!</a></h3>     
-</body>
+    <br><br>
+  
+  </body>
+<% end %>

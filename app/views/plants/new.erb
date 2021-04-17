@@ -1,23 +1,14 @@
-<h1>Enter your new plants data!</h1>
-<h3>
+<head><h1 style="text-align:center">Enter your new plants data.</h1></head>
     <form method="POST" action="/plants">
-    <p>Plant Name: <input type="text" name="name"></p>
-    <p>Latin Name: <input type="text" name="latin_name"></p>
-    <p>Notes: <textarea rows="5" cols="80" type="text" name="notes"> </textarea></p>
-    <p>Date Planted: <input type="text" name="date_planted"></p>
-    <p>Garden: <input type="text" name="garden_name"></p>
-        <h4>You're current gardens are named: </h4>
-        <h5><ul>
-        <% array = []%>
-        <% current_user.plants.each do |plant|%>
-            <% if array.include?(plant.garden_name)%>
-            <% else %>
-                <% array << plant.garden_name%>
-                <li> ---- <%= plant.garden_name %> ---- </a> </li>    
-            <% end %>
-        <% end %>
-        </ul></h5>
-        <br><br>
-    <input type="submit">
+        <p>Plant Name: <input type="text" name="name"></p>
+        <p>Latin Name: <input type="text" name="latin_name"></p>
+        <p>Notes: <textarea type="text" name="notes"> </textarea></p>
+        <p>Date Planted: <input type="text" name="date_planted"></p>
+        <p>Garden: <input type="text" name="garden_name"></p>
+            <p>You're current gardens are named: <h4><%= list_gardens %></h4>
+            </ul></h5>
+            <br><br>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right"></i>
+        </button>
     </form>
-</h3>

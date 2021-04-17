@@ -1,6 +1,6 @@
 
 <h2><%= @plant.name %></h2>
-<h3>
+<h5>
 <form method="POST" action="/plants/<%= @plant.id %>">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
     <p> Name: <input type="text" name="name" value="<%= @plant.name %>" ></p>
@@ -8,11 +8,14 @@
     <p> Notes: <input type="text" name="notes" value="<%= @plant.notes %>"></p>
     <p> Date Planted: <input type="text" name="date_planted" value="<%= @plant.date_planted %>"></p>
     <p>Garden: <input type="text" name="garden_name" value="<%= @plant.garden_name%>"></p>
-    <input type="submit">
-    <p>Delete this plant?</p>
-        <form method="POST" action="/thoughts/<%= @plant.id %>">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" value="DELETE">
-        </form>
-</form>
-</h3>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right"></i>
+    </button></form>
+<p>Delete this plant?</p>
+    <form method="POST" action="/plants/<%= @plant.id %>">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <button class="btn waves-effect waves-light" type="submit" name="action">DELETE
+        <i class="material-icons right"></i>
+    </button>
+    </form>
+</h5>

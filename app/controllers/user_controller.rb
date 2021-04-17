@@ -1,6 +1,7 @@
 class UserController < ApplicationController
     
     post '/users/new' do
+      params.delete("action")
         @user = User.new(params)  
           if @user && @user.save
             session[:user_id] = @user.id

@@ -1,11 +1,12 @@
-<h1>Here's the details for: <%= @plant.name%></h1>
-<h3>
+<h2>Here's the details for: <%= @plant.name%></h2>
+<body>
     <ul>
+        <li>Latin Name: <%= @plant.name%></li>
         <% if @plant.latin_name != nil %>
         <li>Latin Name: <%= @plant.latin_name%></li>
         <% end %>
         <% if @plant.notes != nil %>
-        <li>Notes: <h5><%= @plant.notes%></h5></li>
+        <li>Notes: <%= @plant.notes%></li>
         <% end %>
         <% if @plant.date_planted != nil %>
         <li>Date Planted: <%= @plant.date_planted%></li>
@@ -14,6 +15,6 @@
         <li>Garden: <%= @plant.garden_name%></li>
         <% end %>
     </ul>
-    <h4><a href="/plants/<%=@plant.id%>/edit">Edit or delete this plant here</a><br>
-    <a href="/home">Back to the your list of plants</a> </h4>
-</h3>
+    <h5><a href="/plants/<%=@plant.id%>/edit">Edit or delete this plant here</a><br>
+    <a href="/home">Back to the your list of plants</a> </h5>
+<body>

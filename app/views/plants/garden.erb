@@ -1,9 +1,9 @@
-<h1>Here's all the plants in this garden!</h1>
-<h3><ul>
+<h1>Here's all the plants in this garden.</h1>
+<ul>
     <% current_user.plants.each do |plant|%>
         <% if plant.garden_name == @garden_name %>
             <li><a href='/plants/<%= plant.id%>'> <%= plant.name%></li></a>
         <% end %>
     <% end %>
-</ul></h3>
+</ul>
 <h4>Select a plant to see it's details, or go back to the your <a href="/home">list of plants.</a> </h4>
