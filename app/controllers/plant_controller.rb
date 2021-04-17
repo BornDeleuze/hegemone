@@ -53,8 +53,7 @@ class PlantController < ApplicationController
     @plant = Plant.find_by_id(params[:id])
     erb :"plants/edit"
   end
-
-
+  
   #update
 
   #delete
