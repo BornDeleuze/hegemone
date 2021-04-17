@@ -49,6 +49,11 @@ class PlantController < ApplicationController
   end
 
   #edit
+  get "/plants/:id/edit" do
+    @plant = Plant.find_by_id(params[:id])
+    erb :"plants/edit"
+  end
+
 
   #update
 
