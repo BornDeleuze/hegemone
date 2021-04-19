@@ -2358,8 +2358,12 @@ audio:not([controls]) {
 /**
  * Remove the border on images inside links in IE 10-.
  */
-img {
-  border-style: none;
+img.splash_image{
+  display: block;
+  border-radius: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 /**
