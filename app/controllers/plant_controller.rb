@@ -68,22 +68,22 @@ class PlantController < ApplicationController
     redirect "/home"
   end
 
-  helpers do 
+  helpers do
     def build_list(list)
-        return list.join(' and ') if list.size < 3
-        list[-1] = "and " + list[-1]
-        list.join(', ')
+      return list.join(' and ') if list.size < 3
+      list[-1] = "and " + list[-1]
+      list.join(', ')
     end
 
-    def list_gardens
-        garden_array = [] 
-        current_user.plants.each do |plant|
-            if garden_array.include?(plant.garden_name)
-            else
-                garden_array << plant.garden_name    
-            end
-        end
-        build_list(garden_array)
+    def list_gardens(user)
+      garden_array = [] 
+      user.plants.each do |plant|
+          if garden_array.include?(plant.garden_name)
+          else
+              garden_array << plant.garden_name    
+          end
+      end
+      build_list(garden_array)
     end
   end
 
