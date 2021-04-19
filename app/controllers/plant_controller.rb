@@ -34,11 +34,11 @@ class PlantController < ApplicationController
   post '/plants' do
     params.delete("action")
     plant = current_user.plants.build(params)
-      if plant.save
-        redirect "plants/#{plant.id}"
-      else
-        redirect "plants/new"
-      end
+    if plant.save
+      redirect "plants/#{plant.id}"
+    else
+      redirect "plants/new"
+    end      
   end
 
   get "/plants/:id/edit" do
@@ -52,20 +52,28 @@ class PlantController < ApplicationController
 
   patch "/plants/:id" do
     params.delete("action")
-    @plant = Plant.find_by_id(params[:id])
-    params.delete("_method")
-    @plant.update(params)
-    if @plant.update(params)
-        redirect "/plants/#{@plant.id}"
+    if plant.user == current_user
+      @plant = Plant.find_by_id(params[:id])
+      params.delete("_method")
+      @plant.update(params)
+      if @plant.update(params)
+          redirect "/plants/#{@plant.id}"
+      else
+          redirect "plants/new"
+      end
     else
-        redirect "plants/new"
+      redirect "/plants/new"
     end
   end
 
   delete "/plants/:id" do
-    @plant = Plant.find_by_id(params[:id])
-    @plant.destroy
-    redirect "/home"
+    if plant.user == current_user
+      @plant = Plant.find_by_id(params[:id])
+      @plant.destroy
+      redirect "/home"
+    else
+      redirect "/plants/new"
+    end
   end
 
   helpers do
