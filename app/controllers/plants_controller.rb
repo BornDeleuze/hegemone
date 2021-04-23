@@ -1,4 +1,4 @@
-class PlantController < ApplicationController
+class PlantsController < ApplicationController
 
   get '/home' do
     erb :'users/home'

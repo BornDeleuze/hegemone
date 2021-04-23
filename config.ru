@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 use SessionsController
-use UserController
-use PlantController
+use UsersController
+use PlantsController
 run ApplicationController
